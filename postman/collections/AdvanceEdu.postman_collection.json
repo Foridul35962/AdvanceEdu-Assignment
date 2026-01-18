@@ -1,0 +1,435 @@
+{
+  "info": {
+    "_postman_id": "0ffa76ad-fb13-4b5f-90de-0296121363e0",
+    "name": "AdvanceEdu",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "login",
+      "id": "3084caa9-7820-4a09-835d-9acddcbf8649",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"password\": \"abcd123456\",\r\n  \"email\": \"foridulislam35962@gmail.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/auth/login",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "verification email",
+      "id": "b314e791-4bd0-453a-a117-a300b47607f4",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-dev-client",
+            "value": "postman",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"otp\": \"251721\",\r\n    \"email\": \"foridulislam35962@gmail.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/auth/register-verify-email",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register-verify-email"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "registration",
+      "id": "ab667c31-c475-4eff-bfd6-a0c35494829a",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"fullName\": \"Forid\",\r\n  \"userName\": \"foridul35962\",\r\n  \"password\": \"abcd123456\",\r\n  \"email\": \"foridulislam35962@gmail.com\"\r\n}"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/auth/register",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "profile",
+      "id": "5e038071-bea4-4654-95be-a7c11f37f2b7",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY5NmE4ZTgzYTdhMjJlNTFkMGVmNTlkYyIsInJvbGUiOiJjdXN0b21lciJ9LCJpYXQiOjE3Njg3NDQxMDksImV4cCI6MTc3MTMzNjEwOX0.Iuli5Di5MyghkFqTgVRkLM3yspHFwdIn14F2TqdSu2o",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"password\": \"abcd123456\",\r\n  \"email\": \"foridulislam35962@gmail.com\"\r\n}"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/auth/profile",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "profile"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "forget-pass",
+      "id": "a727a27e-e8d6-4497-91e9-ea074e7529b3",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"foridulislam35962@gmail.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/auth/forget-pass",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "forget-pass"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "forget-pass-verify",
+      "id": "50687007-40b2-46d5-bedb-c08c24ade274",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"otp\": \"564175\"\r\n}"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/auth/forget-pass-verify",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "forget-pass-verify"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "reset-pass",
+      "id": "99dcd944-628e-45c1-b923-61919f13613d",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"password\": \"abcd123456\"\r\n}"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/auth/reset-pass",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "reset-pass"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "all-product",
+      "id": "13570839-6e36-493c-9a76-59baaaf74a42",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY5NmE4ZTgzYTdhMjJlNTFkMGVmNTlkYyIsInJvbGUiOiJjdXN0b21lciJ9LCJpYXQiOjE3Njg3NDQxMDksImV4cCI6MTc3MTMzNjEwOX0.Iuli5Di5MyghkFqTgVRkLM3yspHFwdIn14F2TqdSu2o",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"password\": \"abcd123456\",\r\n  \"email\": \"foridulislam35962@gmail.com\"\r\n}"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/product/all-product",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "product",
+            "all-product"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "add-product",
+      "id": "6d10c084-cb2e-4998-abd9-97ff305262b7",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"foridulislam35962@gmail.com\"\r\n}"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/product/add-product",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "product",
+            "add-product"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get-id",
+      "id": "fc10497e-e77e-4632-ab50-69c426ce1358",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY5NmE4ZTgzYTdhMjJlNTFkMGVmNTlkYyIsInJvbGUiOiJjdXN0b21lciJ9LCJpYXQiOjE3Njg3NDQxMDksImV4cCI6MTc3MTMzNjEwOX0.Iuli5Di5MyghkFqTgVRkLM3yspHFwdIn14F2TqdSu2o",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"password\": \"abcd123456\",\r\n  \"email\": \"foridulislam35962@gmail.com\"\r\n}"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/product/id/:_id",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "product",
+            "id",
+            ":_id"
+          ],
+          "variable": [
+            {
+              "key": "_id",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get-order",
+      "id": "f2981ff1-e0cc-430b-aa71-9cdffb9d8068",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY5NmE4ZTgzYTdhMjJlNTFkMGVmNTlkYyIsInJvbGUiOiJjdXN0b21lciJ9LCJpYXQiOjE3Njg3NDQxMDksImV4cCI6MTc3MTMzNjEwOX0.Iuli5Di5MyghkFqTgVRkLM3yspHFwdIn14F2TqdSu2o",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"password\": \"abcd123456\",\r\n  \"email\": \"foridulislam35962@gmail.com\"\r\n}"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/auth/order",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "order"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create-order",
+      "id": "ae422899-83f7-452b-ab5a-e6ad7e25597b",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"foridulislam35962@gmail.com\"\r\n}"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/order/create-order",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "order",
+            "create-order"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "checkout",
+      "id": "fbceb88d-1399-41a3-bb16-fead3c011bad",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY5NmE4ZTgzYTdhMjJlNTFkMGVmNTlkYyIsInJvbGUiOiJjdXN0b21lciJ9LCJpYXQiOjE3Njg3NDQxMDksImV4cCI6MTc3MTMzNjEwOX0.Iuli5Di5MyghkFqTgVRkLM3yspHFwdIn14F2TqdSu2o",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"password\": \"abcd123456\",\r\n  \"email\": \"foridulislam35962@gmail.com\"\r\n}"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/order/checkout",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "order",
+            "checkout"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "webhook",
+      "id": "1726f2f3-dc75-4010-8698-ca2fbec32a74",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"foridulislam35962@gmail.com\"\r\n}"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/webhook/stripe",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "webhook",
+            "stripe"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "305a3507-4cd4-4f34-9051-e26f0e44a59d",
+      "key": "baseURL",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}

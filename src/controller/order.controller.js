@@ -63,3 +63,17 @@ export const createOrder = asyncHandler(async (req, res) => {
         new ApiResponse(201, order, "Order created successfully")
     );
 });
+
+export const getMyOrders = asyncHandler(async (req, res) => {
+  const user = req.user;
+
+  const orders = await Orders.find({ user: user._id }).sort({ createdAt: -1 });
+
+  return res.status(200).json(
+    new ApiResponse(
+      200,
+      orders,
+      "User orders fetched successfully"
+    )
+  );
+});

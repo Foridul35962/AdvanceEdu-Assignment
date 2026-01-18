@@ -60,3 +60,56 @@ export const checkoutOrder = asyncHandler(async (req, res) => {
         )
     );
 });
+
+
+
+export const stripeWebhook = asyncHandler(async (req, res) => {
+  const sig = req.headers["stripe-signature"];
+  let event;
+
+  try {
+    event = stripe.webhooks.constructEvent(
+      req.body,
+      sig,
+      process.env.STRIPE_WEBHOOK_SECRET
+    );
+  } catch (err) {
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  // Payment completed
+  if (event.type === "checkout.session.completed") {
+    const session = event.data.object;
+
+    const checkout = await CheckoutSessions.findOne({
+      stripeSessionId: session.id
+    }).populate("order");
+
+    if (!checkout) return res.sendStatus(200);
+
+    checkout.paymentStatus = "paid";
+    await checkout.save();
+
+    const order = checkout.order;
+    order.isPaid = true;
+    order.status = "paid";
+    order.paidAt = new Date();
+    order.paymentResult = {
+      id: session.payment_intent,
+      status: session.payment_status,
+      email: session.customer_details.email
+    };
+    await order.save();
+
+    // Reduce stock
+    for (const item of order.orderItems) {
+      const product = await Products.findById(item.product);
+      if (product) {
+        product.countInStock -= item.quantity;
+        await product.save();
+      }
+    }
+  }
+
+  res.json({ received: true });
+});

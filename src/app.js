@@ -5,6 +5,7 @@ import errorHandler from './utils/errorHandler.js'
 import authRouter from './routes/auth.route.js'
 import productRouter from './routes/product.route.js'
 import orderRouter from './routes/order.route.js'
+import webhooksRouter from './routes/webhook.router.js'
 
 const app = express()
 
@@ -22,6 +23,7 @@ app.use(cookies())
 app.use('/api/auth', authRouter)
 app.use('/api/product', productRouter)
 app.use('/api/order', orderRouter)
+app.use("/api/webhook", webhooksRouter)
 
 app.get('/', (req, res)=>{
     res.send('advance edu server is running...')

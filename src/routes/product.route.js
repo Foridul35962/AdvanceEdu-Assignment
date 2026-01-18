@@ -1,7 +1,8 @@
 import express from 'express'
-import * as productController from '../controllers/product.controller.js'
-import verifyJWT from '../middlewares/VerifyJWT.js'
-import upload from '../middlewares/upload.js'
+import * as productController from '../controller/product.controller.js'
+import verifyJWT from '../middleware/VerifyJWT.js'
+import upload from '../middleware/upload.js'
+import checkAdmin from '../middleware/checkAdmin.js'
 
 const product = express.Router()
 
